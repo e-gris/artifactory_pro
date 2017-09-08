@@ -5,8 +5,8 @@
 class artifactory_pro::config {
   # Default file sould have artifactory owner and group
   File {
-    owner => 'jfrog',
-    group => 'jfrog',
+    owner => 'artifactory',
+    group => 'artifactory',
   }
 
   # Create the plugins directory

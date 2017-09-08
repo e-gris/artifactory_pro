@@ -6,8 +6,8 @@ define artifactory_pro::plugin(
 {
   # Default file sould have artifactory owner and group
   File {
-    owner => 'jfrog',
-    group => 'jfrog',
+    owner => 'artifactory',
+    group => 'artifactory',
     mode  => 'a+rx',
   }
 
