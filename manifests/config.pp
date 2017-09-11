@@ -10,7 +10,8 @@ class artifactory_pro::config {
   }
 
   # Create the plugins directory
-  file { "${::artifactory::artifactory_home}/etc/plugins":
+  file { [ "${::artifactory::artifactory_home}/etc",
+           "${::artifactory::artifactory_home}/etc/plugins" ]:
     ensure  => directory,
   }
 
