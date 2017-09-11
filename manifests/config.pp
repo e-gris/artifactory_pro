@@ -9,10 +9,11 @@ class artifactory_pro::config {
     group => 'artifactory',
   }
 
+  ## Likely not wanted
   # Create the plugins directory
-  file { "${::artifactory::artifactory_home}/etc/plugins":
-    ensure  => directory,
-  }
+  #file { "${::artifactory::artifactory_home}/etc/plugins":
+  #  ensure  => directory,
+  #}
 
   # Add the license file
   file { "${::artifactory::artifactory_home}/etc/artifactory.lic":
