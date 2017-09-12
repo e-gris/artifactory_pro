@@ -1,7 +1,7 @@
-# Class: artifactory
+# Class: artifactory_pro
 # ===========================
 #
-# Full description of class artifactory here.
+# Full description of class artifactory_pro here.
 #
 # Parameters
 # ----------
