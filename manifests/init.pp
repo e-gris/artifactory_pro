@@ -17,6 +17,7 @@ class artifactory_pro(
   String $yum_baseurl = 'http://jfrog.bintray.com/artifactory-pro-rpms',
   String $package_name = 'jfrog-artifactory-pro',
   Hash $plugin_urls = {},
+  Optional[String] $package_version = undef,
   Optional[String] $jdbc_driver_url = undef,
   Optional[Enum['mssql', 'mysql', 'oracle', 'postgresql']] $db_type = undef,
   Optional[String] $db_url = undef,
@@ -27,15 +28,16 @@ class artifactory_pro(
 ) {
 
   class{'::artifactory':
-    yum_name                       => $yum_name,
-    yum_baseurl                    => $yum_baseurl,
-    package_name                   => $package_name,
-    db_type                        => $db_type,
-    db_url                         => $db_url,
-    db_username                    => $db_username,
-    db_password                    => $db_password,
-    jdbc_driver_url                => $jdbc_driver_url,
-    is_primary                     => $is_primary,
+    yum_name          => $yum_name,
+    yum_baseurl       => $yum_baseurl,
+    package_name      => $package_name,
+    package_version   => $package_version,
+    db_type           => $db_type,
+    db_url            => $db_url,
+    db_username       => $db_username,
+    db_password       => $db_password,
+    jdbc_driver_url   => $jdbc_driver_url,
+    is_primary        => $is_primary,
   }             ->
   class{'::artifactory_pro::config': } ->
   class{'::artifactory_pro::post_config': }
