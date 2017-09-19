@@ -16,6 +16,7 @@ class artifactory_pro(
   String $yum_name                                                        = 'bintray-jfrog-artifactory-pro-rpms',
   String $yum_baseurl                                                     = 'http://jfrog.bintray.com/artifactory-pro-rpms',
   String $package_name                                                    = 'jfrog-artifactory-pro',
+  Hash $plugin_urls                                                       = {},
   Optional[String] $jdbc_driver_url                                       = undef,
   Optional[Enum['mssql', 'mysql', 'oracle', 'postgresql']] $db_type       = undef,
   Optional[String] $db_url                                                = undef,
@@ -27,7 +28,8 @@ class artifactory_pro(
   Optional[Integer] $binary_provider_cache_maxsize                        = undef,
   Optional[String] $binary_provider_filesystem_dir                        = undef,
   Optional[String] $binary_provider_cache_dir                             = undef,
-  Hash $plugin_urls                                                       = {},
+  Optional[Boolean] $is_primary                                           = true,
+
 ) {
 
   class{'::artifactory':
@@ -45,6 +47,7 @@ class artifactory_pro(
     binary_provider_filesystem_dir => $binary_provider_filesystem_dir,
     binary_provider_cache_dir      => $binary_provider_cache_dir,
     jdbc_driver_url                => $jdbc_driver_url,
+    is_primary                     => $is_primary,
   }             ->
   class{'::artifactory_pro::config': } ->
   class{'::artifactory_pro::post_config': }
