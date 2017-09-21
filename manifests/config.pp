@@ -1,12 +1,8 @@
-# == Class artifactory::config
-#
-# This class is called from artifactory for service config.
-#
 class artifactory_pro::config {
   # Default file sould have artifactory owner and group
   File {
-    owner => 'artifactory',
-    group => 'artifactory',
+    owner => $::artifactory::artifactory_user,
+    group => $::artifactory::artifactory_group,
   }
 
   # Add the license file
