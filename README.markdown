@@ -38,11 +38,11 @@ The Artifactory Pro module manages both the installation and database configurat
 
 ### Beginning with artifactory
 
-Artifactory pro requires at a minimum a license key
+Artifactory pro requires at a minimum a license file
 
 ~~~
 class { '::artifactory_pro':
-  license_key                    => 'abc123',
+  license_file                    => 'puppet://modules/my_module/license.lic',
 }
 ~~~
 
@@ -50,7 +50,7 @@ If you need to add database connectivity instantiate with the required parameter
 
 ~~~
 class { '::artifactory_pro':
-  license_key                    => 'abc123',
+  license_file                   => 'puppet://modules/my_module/license.lic',
   jdbc_driver_url                => 'puppet://modules/my_module/mysql.jar',
   db_type                        => 'oracle',
   db_url                         => 'jdbc:oracle:thin:@somedomain.com:1521:arti001',
@@ -92,9 +92,9 @@ All interaction for the server is done via `::artifactory_pro`.
 
 #### artifactory
 
-##### `license_key`
+##### `license_file`
 
-Sets the name of the Artifactory license key'.
+Sets the location of the Artifactory license file'.
 
 This is required.
 
