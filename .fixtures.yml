@@ -1,8 +1,9 @@
 fixtures:
   forge_modules:
     stdlib:      "puppetlabs/stdlib"
-    artifactory: "autostructure/artifactory"
+#    artifactory: "autostructure/artifactory"
     java:        "puppetlabs/java"
     wget:        "maestrodev/wget"
   symlinks:
     artifactory_pro: "#{source_dir}"
+    artifactory: "/home/eric_griswold/git/artifactory"
